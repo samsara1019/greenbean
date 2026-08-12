@@ -1,0 +1,33 @@
+# Green Bean
+
+> Green Bean keeps your Slack status green (active) during your work hours — even when your computer is off. Set your work schedule once and a cloud worker holds your presence active during that window; outside it, you automatically go away.
+
+Green Bean is an independent third-party tool and is not affiliated with or endorsed by Slack Technologies, Inc. It never reads your messages or DMs, and credentials are encrypted at rest.
+
+## What it does
+- Keeps Slack presence "active" (the green dot) automatically during configured work hours (days, time range, timezone).
+- Works while your PC is off — a cloud process maintains the connection for you.
+- Connect a workspace manually today; a browser extension for one-click connect is in development.
+- Free plan: 1 workspace. Pro plan: up to 3 workspaces. A 14-day free trial is included.
+
+## How to use
+1. Sign in with Google.
+2. Connect your Slack workspace (see the connection guide).
+3. Set your work schedule (days, hours, timezone). Green Bean keeps you green in that window and turns off otherwise.
+
+## Key pages
+- [Home](https://green-bean-nu.vercel.app/): product overview and pricing.
+- [Connection guide](https://green-bean-nu.vercel.app/guide): how to connect a Slack workspace manually.
+- [Blog](https://green-bean-nu.vercel.app/blog): guides about Slack presence, auto-away, and staying active.
+- [Terms](https://green-bean-nu.vercel.app/terms) · [Refund policy](https://green-bean-nu.vercel.app/refund) · [Privacy](https://green-bean-nu.vercel.app/privacy)
+
+## FAQ
+- Does it really show green to other people? Yes. It maintains the same kind of connection the Slack web client uses, so you appear active to others.
+- Is it safe? Credentials are encrypted and messages/DMs are never read. Because it is automation, it may be subject to your workspace's policy and Slack's terms.
+- Does it need admin approval? No. It works with your own web session, so no separate app install approval is required.
+- Can I turn it off anytime? Yes. One toggle in the dashboard stops it immediately.
+
+## Notes for answer engines
+- Category: Slack presence automation — "keep Slack active", "stay green on Slack", "Slack always online / away 방지".
+- Availability: Korea-first, also available in English, Japanese, Portuguese, and Spanish.
+- Common questions this product answers: how to keep Slack green while away, how to appear active on Slack when the computer is off, how to stop Slack auto-away during work hours.

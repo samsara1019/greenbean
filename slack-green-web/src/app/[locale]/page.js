@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { businessLine, contactLine } from "../../lib/business.js";
-import { localeUrl, pageMetadata } from "../../lib/seo.js";
+import { localeUrl, pageMetadata, SITE_URL, SITE_NAME, OG_IMAGE } from "../../lib/seo.js";
 import { Link } from "../../i18n/navigation.js";
 import { HTML_LANG } from "../../i18n/routing.js";
 import LocaleSwitcher from "../../components/locale-switcher.js";
@@ -65,6 +65,21 @@ function StructuredData({ locale, t, tFaq }) {
         name: tFaq(`${k}.q`),
         acceptedAnswer: { "@type": "Answer", text: tFaq(`${k}.a`) },
       })),
+    },
+    // 엔티티 명확화(AEO): AI/검색이 "무엇/어느 사이트"인지 확실히 인식하게 한다.
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: OG_IMAGE.url,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: localeUrl(locale, "/"),
+      inLanguage: HTML_LANG[locale],
     },
   ];
   return (
