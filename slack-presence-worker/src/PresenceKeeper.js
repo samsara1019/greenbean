@@ -40,6 +40,7 @@ export class PresenceKeeper {
     this.lastActivityAt = 0; // 마지막으로 소켓에서 뭔가 받은 시각
     this.connectedAt = 0;
     this.consecutiveAway = 0; // presence가 연속으로 away인 횟수
+    this.needsReauth = false; // 재인증 필요로 멈춤 → stop()이 상태를 덮지 않게
   }
 
   async start() {
@@ -60,7 +61,13 @@ export class PresenceKeeper {
       this.ws = null;
     }
     log(this.conn.id, "stopped");
-    this.onState(this.conn.id, { wsConnected: false, status: "paused" });
+    // needs_reauth 로 멈춘 연결은 status를 건드리지 않는다. 건드리면 다음 tick의
+    // 정리(stop) 한 번으로 "재인증 필요"가 "일시정지"로 덮이고, 사용자는 대시보드에서
+    // 재연결 안내를 못 본 채 error 문자열(invalid_auth)만 보게 된다.
+    this.onState(
+      this.conn.id,
+      this.needsReauth ? { wsConnected: false } : { wsConnected: false, status: "paused" }
+    );
   }
 
   async connect() {
@@ -82,6 +89,7 @@ export class PresenceKeeper {
         // (사용자가 확장으로 다시 연결하면 status=pending 으로 되살아난다.)
         log(this.conn.id, "→ 재인증 필요 (재연결 중단)");
         this.running = false;
+        this.needsReauth = true;
         this.clearTimers();
         this.onState(this.conn.id, { status: "needs_reauth", wsConnected: false, error: reason });
         return;

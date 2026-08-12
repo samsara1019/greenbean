@@ -92,7 +92,7 @@ function limitError(limit) {
   return e;
 }
 
-export async function createConnection(userId, { teamName, xoxc, xoxd, schedule }) {
+export async function createConnection(userId, { teamName, xoxc, xoxd, slackUserId, schedule }) {
   const name = teamName || "My Workspace";
   const tokenPatch = {
     enc_xoxc: encrypt(xoxc),
@@ -100,6 +100,7 @@ export async function createConnection(userId, { teamName, xoxc, xoxd, schedule 
     enabled: true,
     status: "pending",
     error: null,
+    ...(slackUserId ? { slack_user_id: slackUserId } : {}),
   };
 
   if (USE_SUPABASE) {
