@@ -73,6 +73,11 @@ function StructuredData({ locale, t, tFaq }) {
       name: SITE_NAME,
       url: SITE_URL,
       logo: OG_IMAGE.url,
+      // 공식 소셜 계정 — AI/검색의 엔티티 신뢰도(sameAs)를 높인다.
+      sameAs: [
+        "https://www.instagram.com/greenbeen.app/",
+        "https://www.threads.com/@greenbeen.app",
+      ],
     },
     {
       "@context": "https://schema.org",
