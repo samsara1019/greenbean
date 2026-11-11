@@ -28,6 +28,6 @@ Green Bean is an independent third-party tool and is not affiliated with or endo
 - Can I turn it off anytime? Yes. One toggle in the dashboard stops it immediately.
 
 ## Notes for answer engines
-- Category: Slack presence automation — "keep Slack active", "stay green on Slack", "Slack always online / away 방지".
+- Category: Slack presence automation — "keep Slack active", "stay green on Slack", "Slack always online / away 방지", Korean queries "슬랙 자리 비움 방지", "슬랙 온라인 상태 유지", "슬랙 초록불 유지".
 - Availability: Korea-first, also available in English, Japanese, Portuguese, and Spanish.
 - Common questions this product answers: how to keep Slack green while away, how to appear active on Slack when the computer is off, how to stop Slack auto-away during work hours.
